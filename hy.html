@@ -1,0 +1,390 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bhavnoor-portfolio</title>
+    <script type="module" crossorigin="" src="/assets/index-eDb26TsH.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/assets/index-D-HXQ_id.css">
+  </head>
+  <body>
+    <div id="root"><div class="app dark"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f172a;
+    --bg-alt: #0d1526;
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+    --accent-1: #6366f1;
+    --accent-2: #8b5cf6;
+    --accent-3: #06b6d4;
+    --grad: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .light {
+    --bg: #f8fafc;
+    --bg-alt: #f1f5f9;
+    --surface: rgba(0,0,0,0.03);
+    --surface-hover: rgba(0,0,0,0.06);
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.16);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+  .app { min-height: 100vh; transition: background 0.3s, color 0.3s; }
+
+  /* ── Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gradientShift {
+    0%,100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+  @keyframes orbFloat {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33%      { transform: translate(30px,-20px) scale(1.05); }
+    66%      { transform: translate(-20px,15px) scale(0.97); }
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes scrollBounce {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+  }
+  @keyframes pulse { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:0.6; transform:scale(0.85)} }
+
+  .fade-in-up { animation: fadeInUp 0.6s both ease-out; }
+  .invisible  { opacity: 0; transform: translateY(28px); }
+
+  /* ── Layout ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 100px 0; }
+  .section--alt { background: var(--bg-alt); }
+
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-tag {
+    display: inline-block; font-family: var(--font-body); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-1);
+    background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25);
+    padding: 6px 18px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; color: var(--text-primary); line-height: 1.15;
+  }
+
+  .gradient-text {
+    background: var(--grad); background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; animation: gradientShift 4s ease infinite;
+  }
+
+  .glass-card {
+    background: var(--surface); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    transition: var(--transition);
+    will-change: transform;
+  }
+  .glass-card:hover {
+    background: var(--surface-hover); border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--grad); background-size: 200% auto;
+    color: #fff; font-family: var(--font-body); font-weight: 600;
+    font-size: 15px; padding: 14px 32px; border-radius: 100px;
+    border: none; cursor: pointer; transition: var(--transition);
+    animation: gradientShift 4s ease infinite;
+    will-change: transform;
+  }
+  .btn-primary:hover { transform: scale(1.04); box-shadow: 0 0 30px rgba(99,102,241,0.5); }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn-full { width: 100%; justify-content: center; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text-primary);
+    font-family: var(--font-body); font-weight: 500; font-size: 15px;
+    padding: 13px 32px; border-radius: 100px;
+    border: 1px solid var(--border-hover); cursor: pointer;
+    transition: var(--transition); will-change: transform;
+  }
+  .btn-outline:hover { background: var(--surface); border-color: var(--accent-1); color: var(--accent-1); transform: scale(1.03); }
+
+  .btn-cv {
+    background: linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff;
+    font-weight:600; font-size:13px; padding:8px 20px; border-radius:100px;
+    border:none; cursor:pointer; transition:var(--transition); will-change:transform;
+    font-family: var(--font-body);
+  }
+  .btn-cv:hover { transform:scale(1.05); box-shadow:0 0 20px rgba(99,102,241,0.5); }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg,#25d366,#128c7e);
+    color: #fff; font-weight: 600; font-size: 15px;
+    padding: 14px 28px; border-radius: 100px; text-decoration: none;
+    transition: var(--transition); margin-top: 8px; will-change: transform;
+  }
+  .btn-whatsapp:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(37,211,102,0.4); }
+
+  /* ── Navbar ── */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    padding: 16px 0; transition: var(--transition);
+  }
+  .navbar--scrolled {
+    background: rgba(15,23,42,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+  }
+  .light .navbar--scrolled { background: rgba(248,250,252,0.85); }
+  .navbar__inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .navbar__logo {
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    cursor: pointer; user-select: none;
+  }
+  .logo-bracket { color: var(--accent-1); }
+  .logo-name { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .navbar__links {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-link {
+    background: none; border: none; color: var(--text-secondary);
+    font-family: var(--font-body); font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: var(--radius-sm); cursor: pointer;
+    transition: var(--transition);
+  }
+  .nav-link:hover { color: var(--text-primary); background: var(--surface); }
+  .navbar__actions { display: flex; align-items: center; gap: 12px; }
+  .theme-toggle {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 50%; width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px; transition: var(--transition);
+    color: var(--text-primary);
+  }
+  .theme-toggle:hover { border-color: var(--accent-1); background: var(--surface-hover); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: var(--transition); }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 120px 24px 80px;
+  }
+  .hero__bg-gradient {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(99,102,241,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(6,182,212,0.1) 0%, transparent 60%);
+  }
+  .hero__orb {
+    position: absolute; border-radius: 50%; filter: blur(80px);
+    animation: orbFloat ease-in-out infinite; will-change: transform;
+  }
+  .hero__orb--1 { width:500px; height:500px; top:-200px; right:-100px; background: rgba(99,102,241,0.15); animation-duration:14s; }
+  .hero__orb--2 { width:350px; height:350px; bottom:-100px; left:-50px;  background: rgba(139,92,246,0.12); animation-duration:18s; animation-delay:-5s; }
+  .hero__orb--3 { width:250px; height:250px; top:40%; left:30%;          background: rgba(6,182,212,0.08);  animation-duration:22s; animation-delay:-10s; }
+
+  .hero__content { position:relative; z-index:1; text-align:center; max-width:800px; }
+  .hero__badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 500; color: var(--text-secondary);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 8px 20px; border-radius: 100px; margin-bottom: 28px;
+    backdrop-filter: blur(12px);
+  }
+  .badge-dot { width:8px; height:8px; border-radius:50%; background:#10b981; animation: pulse 2s ease-in-out infinite; }
+  .hero__name {
+    font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 800; line-height: 1.1; color: var(--text-primary); margin-bottom: 16px;
+  }
+  .hero__role {
+    font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 600; color: var(--text-secondary); margin-bottom: 24px; min-height: 2.5rem;
+  }
+  .typing-text { color: var(--accent-1); }
+  .cursor { animation: blink 1s step-end infinite; color: var(--accent-1); }
+  .hero__desc {
+    font-size: 17px; color: var(--text-secondary); max-width: 560px;
+    margin: 0 auto 36px; line-height: 1.75;
+  }
+  .hero__cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+  .hero__socials { display: flex; gap: 24px; justify-content: center; }
+  .social-link {
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
+    text-decoration: none; transition: var(--transition);
+    padding: 4px 0; border-bottom: 1px solid transparent;
+  }
+  .social-link:hover { color: var(--accent-1); border-bottom-color: var(--accent-1); }
+  .hero__scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: var(--text-muted); font-size: 12px;
+  }
+  .scroll-mouse {
+    width: 22px; height: 36px; border: 2px solid var(--border-hover);
+    border-radius: 100px; display: flex; justify-content: center; padding-top: 6px;
+  }
+  .scroll-wheel { width: 3px; height: 8px; background: var(--accent-1); border-radius: 2px; animation: scrollBounce 1.8s ease-in-out infinite; }
+
+  /* ── About ── */
+  .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .about__bio p { color: var(--text-secondary); margin-bottom: 16px; font-size: 16px; line-height: 1.8; }
+  .about__bio strong { color: var(--text-primary); }
+  .about__stats { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+  .about-stat__val { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .about-stat__label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+  .about__timeline { position: relative; padding-left: 28px; }
+  .about__timeline::before { content:''; position:absolute; left:7px; top:8px; bottom:8px; width:2px; background: linear-gradient(to bottom, var(--accent-1), var(--accent-2), transparent); border-radius:1px; }
+  .timeline-item { position: relative; margin-bottom: 32px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot { position:absolute; left:-24px; top:4px; width:14px; height:14px; border-radius:50%; background: var(--grad); box-shadow: 0 0 12px rgba(99,102,241,0.5); }
+  .timeline-content {}
+  .timeline-year { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-1); text-transform: uppercase; }
+  .timeline-role { display:block; font-family: var(--font-display); font-size:16px; font-weight:700; color:var(--text-primary); margin:4px 0 6px; }
+  .timeline-desc { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+  /* ── Skills ── */
+  .skills__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .skill-card { padding: 28px; }
+  .skill-card__header { display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+  .skill-icon { font-size: 24px; }
+  .skill-category { font-family: var(--font-display); font-size:17px; font-weight:700; color:var(--text-primary); }
+  .skill-bar-wrap { margin-bottom: 16px; }
+  .skill-bar-label { display:flex; justify-content:space-between; font-size:13px; color:var(--text-secondary); margin-bottom:8px; }
+  .skill-pct { color:var(--accent-1); font-weight:600; }
+  .skill-bar-track { height:5px; background:rgba(255,255,255,0.06); border-radius:100px; overflow:hidden; }
+  .skill-bar-fill { height:100%; background: var(--grad); background-size:200% auto; border-radius:100px; transition: width 1s cubic-bezier(0.4,0,0.2,1); will-change:transform; }
+
+  /* ── Projects ── */
+  .projects__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .project-card { padding: 28px; position:relative; overflow:hidden; }
+  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--accent, #6366f1), transparent); opacity:0; transition:var(--transition); }
+  .project-card:hover::before { opacity:1; }
+  .project-card__top { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+  .project-tag { font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 12px; border-radius:100px; border:1px solid; }
+  .project-link { font-size:20px; color:var(--text-muted); text-decoration:none; transition:var(--transition); }
+  .project-link:hover { color:var(--accent-1); }
+  .project-title { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--text-primary); margin-bottom:10px; }
+  .project-desc { font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:20px; }
+  .project-tech { display:flex; flex-wrap:wrap; gap:8px; }
+  .tech-pill { font-size:11px; font-weight:600; padding:4px 12px; border-radius:100px; background:rgba(99,102,241,0.1); color:var(--accent-1); border:1px solid rgba(99,102,241,0.2); }
+
+  /* ── Achievements ── */
+  .achievements__grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:20px; }
+  .achievement-card { padding:32px 24px; text-align:center; }
+  .achievement-number { font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:800; line-height:1; margin-bottom:8px; }
+  .counter { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; background-size:200% auto; animation:gradientShift 4s ease infinite; }
+  .counter-suffix { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; background-size:200% auto; animation:gradientShift 4s ease infinite; }
+  .achievement-label { font-size:13px; color:var(--text-muted); font-weight:500; }
+
+  /* ── Testimonials ── */
+  .testimonials__wrap { max-width:680px; margin:0 auto; }
+  .testimonial-card { padding:48px; text-align:center; }
+  .testimonial-stars { font-size:22px; color:#f59e0b; margin-bottom:24px; letter-spacing:4px; }
+  .testimonial-text { font-size:17px; color:var(--text-secondary); line-height:1.85; margin-bottom:32px; font-style:italic; }
+  .testimonial-author { display:flex; align-items:center; justify-content:center; gap:14px; }
+  .testimonial-avatar { width:48px; height:48px; border-radius:50%; background:var(--grad); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#fff; flex-shrink:0; }
+  .testimonial-name { font-weight:700; color:var(--text-primary); font-family:var(--font-display); }
+  .testimonial-role { font-size:13px; color:var(--text-muted); }
+  .testimonial-dots { display:flex; gap:8px; justify-content:center; margin-top:28px; }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--border-hover); border:none; cursor:pointer; transition:var(--transition); }
+  .dot--active { background:var(--accent-1); width:24px; border-radius:100px; }
+
+  /* ── Contact ── */
+  .contact__grid { display:grid; grid-template-columns:1fr 1.4fr; gap:64px; align-items:start; }
+  .contact__blurb { font-size:16px; color:var(--text-secondary); line-height:1.8; margin-bottom:32px; }
+  .contact__items { display:flex; flex-direction:column; gap:20px; margin-bottom:32px; }
+  .contact-item { display:flex; align-items:flex-start; gap:16px; }
+  .contact-icon { font-size:20px; margin-top:2px; }
+  .contact-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; }
+  .contact-val { font-size:15px; color:var(--text-primary); font-weight:500; }
+  .contact-form { padding:36px; }
+  .form-group { margin-bottom:20px; }
+  .form-group label { display:block; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .form-group input, .form-group textarea {
+    width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+    border-radius:var(--radius-sm); padding:12px 16px; color:var(--text-primary);
+    font-family:var(--font-body); font-size:15px; transition:var(--transition); resize:vertical;
+  }
+  .light .form-group input, .light .form-group textarea { background: rgba(0,0,0,0.03); }
+  .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--accent-1); box-shadow:0 0 0 3px rgba(99,102,241,0.15); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-muted); }
+  .form-error { color:#f87171; font-size:13px; margin-bottom:16px; }
+  .form-success { color:#4ade80; font-size:13px; margin-bottom:16px; }
+
+  /* ── Footer ── */
+  .footer { border-top:1px solid var(--border); padding:40px 0; }
+  .footer__inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer__copy { font-size:13px; color:var(--text-muted); }
+  .footer__links { display:flex; gap:20px; }
+  .footer-link { font-size:13px; color:var(--text-muted); text-decoration:none; transition:var(--transition); }
+  .footer-link:hover { color:var(--accent-1); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .about__grid { grid-template-columns:1fr; gap:40px; }
+    .contact__grid { grid-template-columns:1fr; gap:32px; }
+    .navbar__links { display:none; }
+    .navbar__links--open {
+      display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0;
+      background:rgba(15,23,42,0.96); backdrop-filter:blur(20px); border-bottom:1px solid var(--border);
+      padding:24px; gap:12px; z-index:998;
+    }
+    .hamburger { display:flex; }
+    .hero__cta { flex-direction:column; align-items:center; }
+  }
+  @media (max-width:600px) {
+    .section { padding:72px 0; }
+    .projects__grid, .skills__grid { grid-template-columns:1fr; }
+    .achievements__grid { grid-template-columns:repeat(2,1fr); }
+    .testimonial-card { padding:28px 20px; }
+    .footer__inner { flex-direction:column; text-align:center; }
+    .about__stats { justify-content:center; }
+  }
+</style><nav class="navbar navbar--scrolled"><div class="navbar__inner"><div class="navbar__logo"><span class="logo-bracket">&lt;</span><span class="logo-name">BS</span><span class="logo-bracket">/&gt;</span></div><div class="navbar__links "><button class="nav-link">About</button><button class="nav-link">Skills</button><button class="nav-link">Projects</button><button class="nav-link">Achievements</button><button class="nav-link">Testimonials</button><button class="nav-link">Contact</button><button class="btn-cv">↓ Resume</button></div><div class="navbar__actions"><button class="theme-toggle" aria-label="Toggle theme">☀</button><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav><main><section class="hero" id="home"><div class="hero__bg-gradient"></div><div class="hero__orb hero__orb--1"></div><div class="hero__orb hero__orb--2"></div><div class="hero__orb hero__orb--3"></div><div class="hero__content"><div class="hero__badge fade-in-up" style="animation-delay: 0.1s;"><span class="badge-dot"></span>Available for Freelance Projects</div><h1 class="hero__name fade-in-up" style="animation-delay: 0.2s;">Hi, I'm <span class="gradient-text">Bhavnoor Singh</span></h1><h2 class="hero__role fade-in-up" style="animation-delay: 0.35s;"><span class="typing-text">Full-Stack Developer<span class="cursor">|</span></span></h2><p class="hero__desc fade-in-up" style="animation-delay: 0.5s;">5+ years building scalable applications, analyzing crypto markets, and crafting immersive game experiences. I bridge finance, blockchain, and AI into production-grade systems.</p><div class="hero__cta fade-in-up" style="animation-delay: 0.65s;"><button class="btn-primary">View My Work</button><button class="btn-outline">Let's Talk →</button></div><div class="hero__socials fade-in-up" style="animation-delay: 0.8s;"><a href="#" class="social-link" target="_blank" rel="noreferrer">GitHub</a><a href="#" class="social-link" target="_blank" rel="noreferrer">LinkedIn</a><a href="#" class="social-link" target="_blank" rel="noreferrer">Twitter</a></div></div><div class="hero__scroll-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>Scroll to explore</span></div></section><section class="section" id="about"><div class="container"><div class="section-header fade-in-up"><span class="section-tag">Who I Am</span><h2 class="section-title">About <span class="gradient-text">Me</span></h2></div><div class="about__grid"><div class="about__bio fade-in-up" style="animation-delay: 0.2s;"><p>I'm a multi-disciplinary engineer with 5+ years of experience across<strong> blockchain development</strong>, <strong>forex trading analysis</strong>,<strong> game development</strong>, and <strong>AI engineering</strong>.</p><p>My work sits at the intersection of finance and technology — I build tools that process real-time market data, deploy smart contracts on multiple chains, and engineer AI models that bring market intelligence to non-technical users.</p><p>When I'm not shipping production code, I'm analyzing candlestick patterns, contributing to open-source DeFi protocols, or prototyping game mechanics in Unity.</p><div class="about__stats"><div class="about-stat"><div class="about-stat__val">5+</div><div class="about-stat__label">Years Experience</div></div><div class="about-stat"><div class="about-stat__val">30+</div><div class="about-stat__label">Projects Shipped</div></div><div class="about-stat"><div class="about-stat__val">10+</div><div class="about-stat__label">Chains Integrated</div></div></div></div><div class="about__timeline fade-in-up" style="animation-delay: 0.4s;"><div class="timeline-item" style="animation-delay: 0s;"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-year">2019</span><strong class="timeline-role">Junior Developer</strong><p class="timeline-desc">Started building REST APIs and web applications using Python and Java.</p></div></div><div class="timeline-item" style="animation-delay: 0.1s;"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-year">2020</span><strong class="timeline-role">Blockchain Engineer</strong><p class="timeline-desc">Entered the crypto space — smart contracts, DeFi analytics, and blockchain infrastructure.</p></div></div><div class="timeline-item" style="animation-delay: 0.2s;"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-year">2021</span><strong class="timeline-role">Game Developer</strong><p class="timeline-desc">Built multiplayer game backends and real-time systems for indie game studios.</p></div></div><div class="timeline-item" style="animation-delay: 0.3s;"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-year">2022</span><strong class="timeline-role">Forex Analyst</strong><p class="timeline-desc">Integrated algorithmic trading strategies with custom Python bots and real-time data feeds.</p></div></div><div class="timeline-item" style="animation-delay: 0.4s;"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-year">2024</span><strong class="timeline-role">AI &amp; Blockchain Lead</strong><p class="timeline-desc">Leading AI-powered crypto analysis systems and cross-chain blockchain solutions.</p></div></div></div></div></div></section><section class="section section--alt" id="skills"><div class="container"><div class="section-header fade-in-up"><span class="section-tag">Expertise</span><h2 class="section-title">My <span class="gradient-text">Skills</span></h2></div><div class="skills__grid"><div class="skill-card glass-card fade-in-up" style="animation-delay: 0s;"><div class="skill-card__header"><span class="skill-icon">⚡</span><h3 class="skill-category">Languages</h3></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Python</span><span class="skill-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%; transition-delay: 0s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Java</span><span class="skill-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%; transition-delay: 0.08s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>JavaScript / TypeScript</span><span class="skill-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%; transition-delay: 0.16s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Solidity</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 78%; transition-delay: 0.24s;"></div></div></div></div><div class="skill-card glass-card fade-in-up" style="animation-delay: 0.15s;"><div class="skill-card__header"><span class="skill-icon">🗄</span><h3 class="skill-category">Databases</h3></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>MongoDB</span><span class="skill-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%; transition-delay: 0.15s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>MySQL</span><span class="skill-pct">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 82%; transition-delay: 0.23s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Redis</span><span class="skill-pct">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%; transition-delay: 0.31s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>PostgreSQL</span><span class="skill-pct">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%; transition-delay: 0.39s;"></div></div></div></div><div class="skill-card glass-card fade-in-up" style="animation-delay: 0.3s;"><div class="skill-card__header"><span class="skill-icon">₿</span><h3 class="skill-category">Blockchain &amp; Finance</h3></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Blockchain &amp; Crypto Analysis</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%; transition-delay: 0.3s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Smart Contracts (EVM)</span><span class="skill-pct">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 82%; transition-delay: 0.38s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Forex Algorithmic Trading</span><span class="skill-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%; transition-delay: 0.46s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>DeFi Protocol Integration</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 78%; transition-delay: 0.54s;"></div></div></div></div><div class="skill-card glass-card fade-in-up" style="animation-delay: 0.45s;"><div class="skill-card__header"><span class="skill-icon">🤖</span><h3 class="skill-category">Backend &amp; AI</h3></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>REST APIs &amp; JWT Auth</span><span class="skill-pct">93%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 93%; transition-delay: 0.45s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>AI / ML Engineering</span><span class="skill-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%; transition-delay: 0.53s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Game Development (Unity)</span><span class="skill-pct">74%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 74%; transition-delay: 0.61s;"></div></div></div><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Docker &amp; CI/CD</span><span class="skill-pct">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width: 72%; transition-delay: 0.69s;"></div></div></div></div></div></div></section><section class="section" id="projects"><div class="container"><div class="section-header fade-in-up"><span class="section-tag">Portfolio</span><h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2></div><div class="projects__grid"><div class="project-card glass-card fade-in-up" style="animation-delay: 0s; --accent: #6366f1;"><div class="project-card__top"><div class="project-tag" style="color: rgb(99, 102, 241); border-color: rgba(99, 102, 241, 0.267); background: rgba(99, 102, 241, 0.067);">AI + Blockchain</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">CryptoSentinel</h3><p class="project-desc">Real-time blockchain analytics dashboard with AI-powered price prediction models. Integrates 12+ CEX/DEX data feeds.</p><div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">MongoDB</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">React</span></div></div><div class="project-card glass-card fade-in-up" style="animation-delay: 0.1s; --accent: #8b5cf6;"><div class="project-card__top"><div class="project-tag" style="color: rgb(139, 92, 246); border-color: rgba(139, 92, 246, 0.267); background: rgba(139, 92, 246, 0.067);">Fintech</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">ForexBot Pro</h3><p class="project-desc">Algorithmic Forex trading bot with custom backtesting engine. Supports MT4/MT5 integration and multi-currency pair analysis.</p><div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">MySQL</span><span class="tech-pill">REST API</span><span class="tech-pill">JWT Auth</span></div></div><div class="project-card glass-card fade-in-up" style="animation-delay: 0.2s; --accent: #06b6d4;"><div class="project-card__top"><div class="project-tag" style="color: rgb(6, 182, 212); border-color: rgba(6, 182, 212, 0.267); background: rgba(6, 182, 212, 0.067);">Blockchain</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">ChainBridge SDK</h3><p class="project-desc">Cross-chain token bridge library enabling seamless asset transfers across EVM-compatible networks.</p><div class="project-tech"><span class="tech-pill">Solidity</span><span class="tech-pill">Java</span><span class="tech-pill">Web3.js</span><span class="tech-pill">MongoDB</span></div></div><div class="project-card glass-card fade-in-up" style="animation-delay: 0.3s; --accent: #10b981;"><div class="project-card__top"><div class="project-tag" style="color: rgb(16, 185, 129); border-color: rgba(16, 185, 129, 0.267); background: rgba(16, 185, 129, 0.067);">Game Dev</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">NexusRealm</h3><p class="project-desc">Multiplayer browser RPG with real-time combat system. Custom game server handling 500+ concurrent players.</p><div class="project-tech"><span class="tech-pill">Java</span><span class="tech-pill">WebSocket</span><span class="tech-pill">MySQL</span><span class="tech-pill">Redis</span></div></div><div class="project-card glass-card fade-in-up" style="animation-delay: 0.4s; --accent: #f59e0b;"><div class="project-card__top"><div class="project-tag" style="color: rgb(245, 158, 11); border-color: rgba(245, 158, 11, 0.267); background: rgba(245, 158, 11, 0.067);">SaaS</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">TradeIQ Platform</h3><p class="project-desc">SaaS platform delivering AI-generated Forex signals to retail traders. Includes backtesting, paper trading, and live alerts.</p><div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">React</span><span class="tech-pill">JWT</span></div></div><div class="project-card glass-card fade-in-up" style="animation-delay: 0.5s; --accent: #ec4899;"><div class="project-card__top"><div class="project-tag" style="color: rgb(236, 72, 153); border-color: rgba(236, 72, 153, 0.267); background: rgba(236, 72, 153, 0.067);">DeFi</div><div class="project-links"><a href="#" class="project-link" title="GitHub">↗</a></div></div><h3 class="project-title">DeFi Yield Optimizer</h3><p class="project-desc">Automated yield farming protocol that dynamically reallocates assets across liquidity pools for maximum APY.</p><div class="project-tech"><span class="tech-pill">Solidity</span><span class="tech-pill">Python</span><span class="tech-pill">Web3.py</span><span class="tech-pill">MongoDB</span></div></div></div></div></section><section class="section section--alt" id="achievements"><div class="container"><div class="section-header fade-in-up"><span class="section-tag">Impact</span><h2 class="section-title">By The <span class="gradient-text">Numbers</span></h2></div><div class="achievements__grid"><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0s;"><div class="achievement-number"><span class="counter">30</span><span class="counter-suffix">+</span></div><div class="achievement-label">Projects Completed</div></div><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0.1s;"><div class="achievement-number"><span class="counter">5</span><span class="counter-suffix">+</span></div><div class="achievement-label">Years Experience</div></div><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0.2s;"><div class="achievement-number"><span class="counter">10</span><span class="counter-suffix">+</span></div><div class="achievement-label">Chains Integrated</div></div><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0.3s;"><div class="achievement-number"><span class="counter">98</span><span class="counter-suffix">%</span></div><div class="achievement-label">Client Satisfaction</div></div><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0.4s;"><div class="achievement-number"><span class="counter">500</span><span class="counter-suffix">K+</span></div><div class="achievement-label">Lines of Code Written</div></div><div class="achievement-card glass-card fade-in-up" style="animation-delay: 0.5s;"><div class="achievement-number"><span class="counter">15</span><span class="counter-suffix">+</span></div><div class="achievement-label">Trading Bots Deployed</div></div></div></div></section><section class="section" id="testimonials"><div class="container"><div class="section-header invisible"><span class="section-tag">Social Proof</span><h2 class="section-title">What Clients <span class="gradient-text">Say</span></h2></div><div class="testimonials__wrap invisible" style="animation-delay: 0.2s;"><div class="testimonial-card glass-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Bhavnoor delivered a world-class blockchain analytics system that exceeded our expectations. His deep understanding of DeFi protocols and smart contract architecture is unmatched. Highly recommended."</p><div class="testimonial-author"><div class="testimonial-avatar">AM</div><div><div class="testimonial-name">Arjun Mehta</div><div class="testimonial-role">CTO, CryptoVentures Ltd</div></div></div></div><div class="testimonial-dots"><button class="dot dot--active"></button><button class="dot "></button><button class="dot "></button><button class="dot "></button></div></div></div></section><section class="section section--alt" id="contact"><div class="container"><div class="section-header invisible"><span class="section-tag">Get In Touch</span><h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2></div><div class="contact__grid"><div class="contact__info invisible" style="animation-delay: 0.2s;"><p class="contact__blurb">Whether you need a blockchain solution, trading bot, or a full-stack application — I'm ready to help. Let's build something great together.</p><div class="contact__items"><div class="contact-item"><span class="contact-icon">📧</span><div><div class="contact-label">Email</div><div class="contact-val">bhavnoor@example.com</div></div></div><div class="contact-item"><span class="contact-icon">📍</span><div><div class="contact-label">Location</div><div class="contact-val">Ludhiana, Punjab, India</div></div></div><div class="contact-item"><span class="contact-icon">💼</span><div><div class="contact-label">Availability</div><div class="contact-val">Open to Freelance &amp; Remote</div></div></div></div><a href="https://wa.me/91XXXXXXXXXX" class="btn-whatsapp" target="_blank" rel="noreferrer">💬 Chat on WhatsApp</a></div><div class="contact__form-wrap invisible" style="animation-delay: 0.35s;"><form class="contact-form glass-card" novalidate=""><div class="form-group"><label>Name</label><input placeholder="Your full name" value="" name="name"></div><div class="form-group"><label>Email</label><input placeholder="your@email.com" type="email" value="" name="email"></div><div class="form-group"><label>Message</label><textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea></div><button type="submit" class="btn-primary btn-full">Send Message →</button></form></div></div></div></section></main><footer class="footer"><div class="container footer__inner"><div class="footer__logo"><span class="logo-bracket">&lt;</span><span class="logo-name">BS</span><span class="logo-bracket">/&gt;</span></div><p class="footer__copy">© 2024 Bhavnoor Singh. Crafted with passion.</p><div class="footer__links"><a href="#" class="footer-link">GitHub</a><a href="#" class="footer-link">LinkedIn</a><a href="#" class="footer-link">Twitter</a></div></div></footer></div></div>
+  
+
+<audio class="audio-output" style="display: none;"></audio><div id="volume-booster-visusalizer">
+                    <div class="sound">
+                        <div class="sound-icon"></div>
+                        <div class="sound-wave sound-wave_one"></div>
+                        <div class="sound-wave sound-wave_two"></div>
+                        <div class="sound-wave sound-wave_three"></div>
+                    </div>
+                    <div class="segments-box">
+                        <div data-range="1-20" class="segment"><span></span></div>
+                        <div data-range="21-40" class="segment"><span></span></div>
+                        <div data-range="41-60" class="segment"><span></span></div>
+                        <div data-range="61-80" class="segment"><span></span></div>
+                        <div data-range="81-100" class="segment"><span></span></div>
+                    </div>
+                </div></body></html>
